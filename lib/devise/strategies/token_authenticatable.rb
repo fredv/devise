@@ -15,7 +15,7 @@ module Devise
       end
 
       def authenticate!
-        unless authentication_hash['token'].blank? && authentication_hash[:token].blank?
+        unless authentication_hash[:token].blank? && authentication_hash[:temp_token].blank?
           resource = mapping.to.find_for_token_authentication(authentication_hash)
 
           if validate(resource)
